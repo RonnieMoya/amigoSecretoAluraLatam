@@ -15,9 +15,26 @@ function agregarAmigo() {
     else {
         listaAmigos.push(ingresoAmigo.value);// agrega amigos a la lista
         console.log(`Amigo ${ingresoAmigo.value} agregado a la lista.`);
-        //ulListaAmigos.innerHTML += `<ul>${ingresoAmigo.value}</ul>`;
+        actualizarListaAmigos()
 
     }
     ingresoAmigo.value = "";
     return;
+}
+
+
+function actualizarListaAmigos() {
+         
+    // Limpiar la lista existente
+    ulListaAmigos.innerHTML = "";
+    
+    // Iterar sobre el arreglo listaAmigos
+    for (let i = 0; i < listaAmigos.length; i++) {
+        // Crear un nuevo elemento de lista para cada amigo
+        const li = document.createElement("li");
+        li.textContent = listaAmigos[i];
+        
+        // Agregar el elemento de lista a la lista en pantalla
+        ulListaAmigos.appendChild(li);
+    }
 }
